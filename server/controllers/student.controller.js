@@ -37,7 +37,8 @@ export const studentFormController = async (req, res)=>{
             collegeName,
             gender,
             age,
-            semester
+            semester,
+            isProfileComplete: true
         })
 
         student.save();
@@ -48,3 +49,20 @@ export const studentFormController = async (req, res)=>{
         res.status(500).json({ error: 'Internal Server Error in student form controller' });
     }
 }
+
+export const getTotalStudents = async (req, res) => {
+    try {
+        const totalStudents = await Student.countDocuments();
+
+        return res.status(200).json({
+            success: true,
+            totalStudents,
+        });
+    } catch (error) {
+        console.error("Error fetching total students:", error);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+        });
+    }
+};

@@ -27,7 +27,12 @@ const studentSchema = new mongoose.Schema({
         type: Number,
         enum: [1,2,3,4,5,6,7,8],
         required: true
-    }
+    },
+    isProfileComplete:{
+    type: Boolean,
+    default: false,
+    required: true
+  }
 });
 
 export const Student = mongoose.model('Student', studentSchema);

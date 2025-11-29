@@ -69,7 +69,7 @@ export default function App() {
         <label className="block mt-4 font-roboto text-[16px]">College Name</label>
         <select
           {...register("collegeName")}
-          className="w-full mt-1 p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2C3E50]"
+          className={`w-full pl-10 pr-4 py-1 border rounded-lg outline-none transition appearance-none bg-white`}
         >
           <option value="">Select College</option>
           <option value="ABC College">ABC College</option>
@@ -86,7 +86,7 @@ export default function App() {
         <label className="block mt-4 font-roboto text-[16px]">Gender</label>
         <select
           {...register("gender")}
-          className="w-full mt-1 p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2C3E50]"
+          className={`w-full pl-10 pr-4 py-1 border rounded-lg outline-none transition appearance-none bg-white`}
         >
           <option value="">Select Gender</option>
           <option value="Male">Male</option>
@@ -131,7 +131,7 @@ export default function App() {
         <label className="block mt-4 font-roboto text-[16px]">Semester</label>
         <select
           {...register("semester")}
-          className="w-full mt-1 p-3 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2C3E50]"
+          className={`w-full pl-10 pr-4 py-1 border rounded-lg outline-none transition appearance-none bg-white`}
         >
           <option value="">Select Semester</option>
           {[1, 2, 3, 4, 5, 6, 7, 8].map((sem) => (

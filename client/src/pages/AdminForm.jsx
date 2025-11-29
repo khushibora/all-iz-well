@@ -105,8 +105,7 @@ export default function CollegeForm() {
         <label className="block mt-4 font-roboto text-[16px]">Institution Type</label>
         <select
           {...register("institutionType")}
-          className="w-full mt-1 p-3 border border-gray-400 rounded-lg 
-                     focus:outline-none focus:ring-2 focus:ring-[#2C3E50]"
+          className={`w-full pl-10 pr-4 py-3 border rounded-lg outline-none transition appearance-none bg-white`}
         >
           <option value="">Select Type</option>
           <option value="Government">Government</option>

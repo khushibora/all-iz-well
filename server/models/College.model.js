@@ -23,7 +23,15 @@ const collegeSchema = new mongoose.Schema({
     address:{
         type: String,
         required: true
+    },
+    isActive:{
+        type: Boolean,
+        default: false
+    },
+    isRejected:{
+        type: Boolean,
+        default: false
     }
-});
+}, {timestamps: true});
 
 export const College = mongoose.model('College', collegeSchema);
