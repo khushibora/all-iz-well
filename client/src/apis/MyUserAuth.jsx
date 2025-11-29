@@ -106,6 +106,37 @@ export const useLoginMyUser = () => {
     }
 }
 
+export const useLogoutMyUser = ()=>{
+    const logoutMyUserRequest = async ()=>{
+        const response = await fetch(`${API_BASE_URL}/api/v1/auth/logout`,{
+            method: 'POST',
+            credentials: 'include',
+        })
+
+        if(!response.ok){
+            throw new Error("Failed to logout user");
+        }
+
+        return response.json();
+    }
+
+    const {
+        mutateAsync: logoutMyUser,
+        isPending,
+        isError,
+        isSuccess
+    } = useMutation({
+        mutationFn: logoutMyUserRequest,
+    });
+    
+    return {
+        logoutMyUser,
+        isPending,
+        isError,
+        isSuccess
+    }
+}
+
 
 // student details
 
@@ -145,6 +176,10 @@ export const useStudentForm = ()=>{
 }
 
 
+// superadmin access
+
+
+
 export const useGetUsers = () => {
 
     const fetchUsers = async () => {
@@ -177,3 +212,4 @@ export const useGetUsers = () => {
         refetch
     };
 };
+

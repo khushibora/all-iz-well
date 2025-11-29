@@ -14,13 +14,15 @@ const loginSchema = z.object({
     .email('Invalid email'),
   password: z.string()
     .min(8, 'Password must be at least 8 characters'),
-  role: z.enum(['admin', 'student'], {
-    errorMap: () => ({ message: 'Please select a role' })
-  }),
+  role: z.string()
+    .min(1, 'Please select a role')
+    .refine((val) => ['admin', 'student', 'tech-team', 'counsellor'].includes(val), {
+      message: 'Invalid role selected',
+    }),
 });
 
 export function Loginpage() {
-  const {loginMyUser, isPending} = useLoginMyUser();
+  const { loginMyUser, isPending } = useLoginMyUser();
 
   const navigate = useNavigate();
 
@@ -30,14 +32,14 @@ export function Loginpage() {
 
   const onSubmit = async (data) => {
     try {
-        await loginMyUser({
+      await loginMyUser({
         email: data.email,
         password: data.password
       })
       toast.success("Login successful!");
       console.log("Login Data:", data);
 
-      // navigate('/dashboard');
+      navigate(`/${data.role}-dashboard`);
     } catch (error) {
       console.error(error);
       toast.error("Login failed. Try again.");
@@ -112,10 +114,10 @@ export function Loginpage() {
                 onBlur={(e) => !errors.role && (e.target.style.borderColor = '#d1d5db')}
               >
                 <option value="">Select your role</option>
-                <option value="admin">Admin</option>
-                <option value="student">Student</option>
-                <option value="counsellor">Counsellor</option>
-                <option value="Tech team">Tech Team</option>
+                <option value="admin">admin</option>
+                <option value="student">student</option>
+                <option value="counsellor">counsellor</option>
+                <option value="tech-team">tech-team</option>
                 {/* <option value="counsellor">Counsellor</option> */}
               </select>
             </div>

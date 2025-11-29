@@ -8,6 +8,8 @@ import {Loginpage} from './pages/Loginpage'
 import StudentForm from './pages/StudentForm'
 import CollegeForm from './pages/AdminForm'
 import StudentDashboard from './pages/StudentDashboard'
+import AdminDashboard from './pages/AdminDashboard'
+import SuperAdminDashboard from './pages/SuperadminDashboard'
 
 export const App = () => {
   return (
@@ -16,9 +18,9 @@ export const App = () => {
       <Route path="/" element={<Layout><Homepage/></Layout>} />
       <Route path="/login" element={<Layout><Loginpage/></Layout>} />
       <Route path="/register" element={<Layout><RegistrationPage/></Layout>} />
-      <Route path="/admin-dashboard" element={<Layout></Layout>} />
+      <Route path="/admin-dashboard" element={<Layout><AdminDashboard/></Layout>} />
       <Route path="/counsellor-dashboard" element={<Layout><CounsellorPortal/></Layout>} />
-      <Route path="/techTeam-dashboard" element={<Layout></Layout>} />
+      <Route path="/tech-team-dashboard" element={<Layout><SuperAdminDashboard/></Layout>} />
       <Route path="/student-form" element={<StudentForm/>} />
       <Route path="/admin-form" element={<CollegeForm/>} />
       <Route path='/student-dashboard' element={<StudentDashboard/>}/>
