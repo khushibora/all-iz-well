@@ -8,6 +8,7 @@ const Sidebar = () => {
       <nav className='flex flex-col gap-4'>
         <Link to="/" className='text-gray-700 hover:text-blue-600'>Home</Link>
         <Link to="/journal" className='text-gray-700 hover:text-blue-600'>Journal</Link>
+        <Link to="/student-portal" className='text-gray-700 hover:text-blue-600'>Student Portal</Link>
         <Link to="/login" className='text-gray-700 hover:text-blue-600'>Login</Link>
         <Link to="/register" className='text-gray-700 hover:text-blue-600'>Register</Link>
       </nav>

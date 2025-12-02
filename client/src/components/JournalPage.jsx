@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './JournalPage.css';
+import logo from '../assets/logo.jpg';
+
 const JournalHeader = () => {
 
     const [language, setLanguage] = useState("English");
@@ -15,7 +17,9 @@ const JournalHeader = () => {
                 ←
             </button>
 
-            <div className="logo-circle" />
+            <div className="logo-circle">
+                <img src={logo} alt="Logo" className="header-logo" />
+            </div>
 
             <div className="lang-container">
                 <button
